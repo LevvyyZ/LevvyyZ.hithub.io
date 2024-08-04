@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposta</title>
+    <link rel="stylesheet" href="index.css"
+</head>
+<body>
+    <div class="container">
+        <h1>Quer namorar comigo?</h1>
+        <button id="button-yes" class="button button-yes" onclick="handleYesClick()">Sim</button>
+        <button id="button-no" class="button button-no" onclick="handleNoClick()">Não</button>
+    </div>
+
+    <script>
+        function handleYesClick() {
+            window.location.href = 'pagina_parabens.html';
+        }
+
+        function handleNoClick() {
+            const buttonNo = document.getElementById('button-no');
+            const container = document.querySelector('.container');
+            const maxX = container.clientWidth - buttonNo.clientWidth;
+            const maxY = container.clientHeight - buttonNo.clientHeight;
+            
+            // Randomize new position
+            const newX = Math.random() * maxX;
+            const newY = Math.random() * maxY;
+            
+            buttonNo.style.position = 'absolute';
+            buttonNo.style.left = newX + 'px';
+            buttonNo.style.top = newY + 'px';
+        }
+    </script>
+</body>
+</html>
